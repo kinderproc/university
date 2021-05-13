@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+  <div th:insert="~{include/header :: header-head}"></div>
+<body>
+  <div th:insert="~{include/header :: header-navbar}"></div>  
+  <div class="container mt-3">    
+    <div th:insert="~{include/notification :: notification}"></div>
+    <div class="container mt-3">
+      <span>If you see this screen, then something has gone wrong. Please inform support service by e-mail "kinderproc84@yandex.ru".</span>
+    </div>
+  </div>
+</body>
+</html>

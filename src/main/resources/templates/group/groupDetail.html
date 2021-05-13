@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{include/header :: header-head}"></div>
+<body>  
+  <div th:insert="~{include/header :: header-navbar}"></div>
+  <br>
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-header">
+        <h2>Group Detail</h2>     
+        <div th:if="${group != null}" class="row">
+          <div th:if="${!group.deleted}" class="col-sm-2">             
+             <a th:href="@{/groupEdit(id=${group.id})}">Edit</a>
+          </div>
+          <div th:if="${group.deleted}"class="col-sm-6">
+             <a th:href="@{/groupRestore(id=${group.id})}">Restore</a>
+          </div>
+          <div th:if="${!group.deleted}"class="col-sm-6">
+             <a th:href="@{/groupDelete(id=${group.id})}">Delete</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+         <div th:insert="~{include/notification :: notification}"></div>
+         <div th:if="${group != null}">
+          <div class="row">                                        
+            <div class="col-sm-2"><strong>ID</strong></div>                  
+            <div class="col-sm-6" th:text="${group.id}">id</div>
+          </div>               
+          <div class="row">                                        
+            <div class="col-sm-2"><strong>NAME</strong></div>                
+            <div class="col-sm-6" th:text="${group.name}">name</div>
+          </div>
+          </div>
+      </div>
+      <div class="card-footer">
+        <a th:href="@{/groupList}">Back</a>
+      </div>
+    </div>
+  </div>  
+</body>
+</html>

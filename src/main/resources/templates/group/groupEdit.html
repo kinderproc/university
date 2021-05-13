@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{include/header :: header-head}"></div>
+<body>  
+  <div th:insert="~{include/header :: header-navbar}"></div>
+  <br>
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-header">
+        <h2>Editing Group Detail</h2>        
+        <div class="row">
+          <div class="col-sm-2">             
+             <a href="javascript:;" onclick="document.getElementById('form_main').submit();" >Save</a>
+          </div>
+          <div class="col-sm-6">
+             <a th:href="@{/groupList}">Cancel</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form id="form_main" th:action = "@{/groupEdit}" th:object="${group}" method="post">
+          <input type="hidden" th:field="*{id}">
+          <div class="row align-items-center">
+            <div class="col-2">           
+              <label for="groupName"><strong>NAME</strong></label>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" th:field="*{name}" id="groupName">
+              <div><pre class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">field error message</pre></div>
+            </div>
+          </div>
+        </form>            
+      </div>
+    </div>
+  </div>  
+</body>
+</html>

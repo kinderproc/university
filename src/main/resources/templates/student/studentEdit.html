@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{include/header :: header-head}"></div>
+<body>
+  <div th:insert="~{include/header :: header-navbar}"></div>
+  <br> 
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-header">
+        <h2>Editing Student Detail</h2>        
+        <div class="row">
+          <div class="col-sm-2">             
+             <a href="javascript:;" onclick="document.getElementById('form_main').submit();" >Save</a>
+          </div>
+          <div class="col-sm-6">
+             <a th:href="@{/studentList}">Cancel</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form id="form_main" th:action = "@{/studentEdit}" th:object="${student}" method="post">                               
+          <input type="hidden" th:field="*{id}">
+          <div class="row pb-2 align-items-center">
+            <div class="col-2">           
+              <label for="studentName"><strong>Name</strong></label>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" th:field="*{name}" id="studentName">
+              <div><pre class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">field error message</pre></div>
+            </div>
+          </div>
+          <div class="row pb-2 align-items-center">
+            <div class="col-2">           
+              <label for="studentSurname"><strong>Surname</strong></label>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" th:field="*{surname}" id="surname">
+              <div><pre class="alert alert-danger" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">field error message</pre></div>
+            </div>
+          </div>          
+          <div class="row pb-2 align-items-center">
+            <div class="col-2">           
+              <label for="studentGroup"><strong>Group</strong></label>
+            </div>
+            <div class="col">
+              <select class="form-control" id="studentGroup" th:field="*{groupId}">
+                <option th:each="group : ${groups}" 
+                        th:value="${group.id}" 
+                        th:text="${group.name}"
+                        th:selected="${group.id==student.groupId}">groupName</option>
+              </select>
+              <div><pre class="alert alert-danger" th:if="${#fields.hasErrors('groupId')}" th:errors="*{groupId}">field error message</pre></div>
+            </div>
+          </div>
+          <div class="row pb-2 align-items-center">
+            <div class="col-2">           
+              <label for="studentPhone"><strong>Phone</strong></label>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" th:field="*{phone}" id="studentPhone">
+              <div><pre class="alert alert-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">field error message</pre></div>
+            </div>
+          </div>
+          <div class="row align-items-center">
+            <div class="col-2">           
+              <label for="studentAge"><strong>Age</strong></label>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" th:field="*{age}" id="studentAge">
+              <div><pre class="alert alert-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">field error message</pre></div> 
+            </div>
+          </div>
+        </form>            
+      </div>
+    </div>
+  </div> 
+</body>
+</html>

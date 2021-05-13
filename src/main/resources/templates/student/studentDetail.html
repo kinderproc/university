@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{include/header :: header-head}"></div>
+<body>
+  <div th:insert="~{include/header :: header-navbar}"></div>
+  <br>
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-header">
+        <h2>Student Detail</h2>
+        <div th:if="${student != null}" class="row">
+          <div th:if="${!student.deleted}" class="col-sm-2">             
+             <a th:href="@{/studentEdit(id=${student.id})}">Edit</a>
+          </div>
+          <div th:if="${student.deleted}"class="col-sm-6">
+             <a th:href="@{/studentRestore(id=${student.id})}">Restore</a>
+          </div>
+          <div th:if="${!student.deleted}"class="col-sm-6">
+             <a th:href="@{/studentDelete(id=${student.id})}">Delete</a>
+          </div>
+        </div>
+      </div>      
+      <div class="card-body">
+        <div th:insert="~{include/notification :: notification}"></div>
+        <div th:if="${student != null}">
+          <div class="row">                                        
+            <div class="col-sm-2"><strong>ID</strong></div>                  
+            <div class="col-sm-8" th:text="${student.id}">id</div>      
+          </div>                                                     
+          <div class="row">                                        
+            <div class="col-sm-2"><strong>NAME</strong></div>                
+            <div class="col-sm-8" th:text="${student.name}">name</div>    
+          </div>                                                     
+          <div class="row">                                        
+            <div class="col-sm-2"><strong>SURNAME</strong></div>             
+            <div class="col-sm-8" th:text="${student.surname}">surname</div> 
+          </div>                                                     
+          <div class="row">                                        
+            <div class="col-sm-2"><strong>GROUP</strong></div>                 
+            <div class="col-sm-8" th:text="${student.groupName}">groupName</div>     
+          </div>                                                     
+          <div class="row">                                        
+            <div class="col-sm-2"><strong>PHONE</strong></div>               
+            <div class="col-sm-8" th:text="${student.phone}">phone</div>   
+          </div>                                                     
+          <div class="row">                                        
+            <div class="col-sm-2"><strong>AGE</strong></div>                 
+            <div class="col-sm-8" th:text="${student.age}">age</div>     
+          </div>                                                     
+        </div>        
+      </div>
+      <div class="card-footer">
+        <a th:href="@{/studentList}">Back</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

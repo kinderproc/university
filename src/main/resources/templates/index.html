@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+  <div th:insert="~{include/header :: header-head}"></div>
+<body>
+  <div th:insert="~{include/header :: header-navbar}"></div> 
+  <div class="container mt-3">
+    <h2>Moscow McDonalds University</h2>
+    <em>Our motto is "C'mon dumbass! At the end you'll come to us!!!"</em><br><br>
+    Our <a th:href="@{/groupList}">groups</a><br>
+    Our <a th:href="@{/studentList}">students</a><br>
+  </div>
+</body>
+</html>

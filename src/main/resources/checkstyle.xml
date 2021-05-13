@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+<module name="Checker">
+  <module name="SuppressionFilter">
+    <property name="file" value="src/main/resources/suppressions.xml" />
+  </module>
+  <module name="NewlineAtEndOfFile" />
+  <module name="UniqueProperties" />
+  <module name="FileTabCharacter" />
+  <module name="TreeWalker">
+    <module name="AvoidStarImport" />
+    <module name="UnusedImports" />
+    <module name="WhitespaceAround">
+      <property name="tokens" value="ASSIGN,PLUS,MINUS,EQUAL" />
+    </module>
+  </module>
+  <module name="NewlineAtEndOfFile" />
+</module>

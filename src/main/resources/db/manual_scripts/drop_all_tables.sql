@@ -1,0 +1,11 @@
+drop table schedule_items_groups;
+drop table schedule_items;
+drop table lections;
+drop table teachers_subjects;
+drop table subjects;
+drop table teachers;
+drop table students;
+drop table groups;
+drop table rooms;
+drop table departments;
+drop table faculties;
