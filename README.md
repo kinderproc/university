@@ -4,8 +4,6 @@ Repository contains:
 - DB schema
 of university project area.
 
-The code is written by Alexander Goncharenko during his learning at foxminded JavaEE course.
-
 To run the project you need to:
 1. Download and install Tomcat, at the moment the latest is https://tomcat.apache.org/download-90.cgi
 2. Add to <tomcat server folder>/servert.xml file, inside </GlobalNamingResources> tag the next text:
