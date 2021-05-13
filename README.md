@@ -9,6 +9,7 @@ The code is written by Alexander Goncharenko during his learning at foxminded Ja
 To run the project you need to:
 1. Download and install Tomcat, at the moment the latest is https://tomcat.apache.org/download-90.cgi
 2. Add to <tomcat server folder>/servert.xml file, inside </GlobalNamingResources> tag the next text:
+   ```
    <Resource name="jdbc/foxdb" 
       global="jdbc/foxdb" 
       auth="Container" 
@@ -21,12 +22,13 @@ To run the project you need to:
       maxIdle="20" 
       minIdle="5" 
       maxWait="10000" />
+   ```
 3. Add to <tomcat server folder>/context.xml file inside <Context> tag the next text:
-    ```
-    <ResourceLink name="jdbc/foxdb"
-                  global="jdbc/foxdb"
-                  auth="Container"
-                  type="javax.sql.DataSource" />
+   ```
+   <ResourceLink name="jdbc/foxdb"
+                 global="jdbc/foxdb"
+                 auth="Container"
+                 type="javax.sql.DataSource" />
    ```
 4. Dowlonad and install Postgresql, at the moment the latest is https://www.postgresql.org/ftp/source/v12.0/
 5. To create test database switch to the "src/main/resources/db/manual_scripts" directory and execute command
