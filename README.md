@@ -6,7 +6,7 @@ of university project area.
 
 To run the project you need to:
 1. Download and install Tomcat, at the moment the latest is https://tomcat.apache.org/download-90.cgi
-2. Add to <tomcat server folder>/servert.xml file, inside </GlobalNamingResources> tag the next text:
+2. Add to '<tomcat server folder>/servert.xml' file, inside '</GlobalNamingResources>' tag the next text:
    ```
    <Resource name="jdbc/foxdb" 
       global="jdbc/foxdb" 
