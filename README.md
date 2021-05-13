@@ -22,10 +22,10 @@ To run the project you need to:
       minIdle="5" 
       maxWait="10000" />
 3. Add to <tomcat server folder>/context.xml file inside <Context> tag the next text:
-    <ResourceLink name="jdbc/foxdb"
-                  global="jdbc/foxdb"
-                  auth="Container"
-                  type="javax.sql.DataSource" />
+    ><ResourceLink name="jdbc/foxdb"
+    >              global="jdbc/foxdb"
+    >              auth="Container"
+    >              type="javax.sql.DataSource" />
 4. Dowlonad and install Postgresql, at the moment the latest is https://www.postgresql.org/ftp/source/v12.0/
 5. To create test database switch to the "src/main/resources/db/manual_scripts" directory and execute command
    $ sudo -u postgres psql -f create_foxtestdb.sql
